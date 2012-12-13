@@ -1,0 +1,26 @@
+<% if @room.errors.any? %>
+  <div>
+    <%= t 'general.form_error' %>
+  </div>
+<% end %>
+
+<%= form_for(@room) do |f| %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+    <%= error_tag @room, :title %>
+  </p>
+  <p>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+    <%= error_tag @room, :location %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+    <%= error_tag @room, :description %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
