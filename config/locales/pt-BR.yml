@@ -1,9 +1,7 @@
 pt-BR:
-
   home:
     index:
       title: Quartos recém Cadastrados
-
   users:
     confirmations:
       success: Email confirmado com sucesso, obrigado!
@@ -15,7 +13,10 @@ pt-BR:
       title: "Perfil: %{user_name}"
       location: "Localização: %{location}"
       bio: "Bio: %{bio}"
-
+  user_sessions:
+    new:
+      title: Login
+      sign_up: Cadastre-se
   rooms:
     index:
       title: Listando Quartos
@@ -27,7 +28,6 @@ pt-BR:
       title: Cadastrar Quarto
     edit:
       title: Editar Quarto
-
   signup_mailer:
     confirm_email:
       subject: 'Colcho.net - Confirme seu email'
@@ -39,26 +39,20 @@ pt-BR:
 
       confirm_link_html: 'Para você começar a usar o site, acesse o link: %{link}'
       thanks_html: 'Obrigado por se cadastrar no %{link}.'
-
   links:
     back: Voltar
     show: Exibir
     edit: Editar
     destroy: Deletar
-
   layout:
     rooms: Quartos
     signup: Cadastro
-
   general:
     form_error: Há erros no formulário, por favor verifique.
-
   activerecord:
-
     models:
       user: Usuário
       room: Quarto
-
     attributes:
       user:
         bio: Biografia
@@ -67,8 +61,19 @@ pt-BR:
         location: Localização
         password: Senha
         password_confirmation: Confirme sua Senha
-
       room:
         description: Descrição
         location: Localização
         title: Título
+  activemodel:
+    attributes:
+      user_session:
+        email: Email
+        password: Senha
+    errors:
+      messages:
+        invalid_login: Usuário ou senha inválidos
+  helpers:
+    submit:
+      user_session:
+        create: Entrar

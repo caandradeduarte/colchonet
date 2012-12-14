@@ -4,6 +4,8 @@ Colchonet::Application.routes.draw do
   	resources :users
 
   	resource :confirmation, :only => [:show]
+
+  	resource :user_sessions, :only => [:create, :new, :destroy], :path => 'login', :path_names => {:new => ''}
   end
 
   root :to => 'home#index'
