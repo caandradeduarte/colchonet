@@ -1,10 +1,17 @@
 class UsersController < ApplicationController
+	before_filter :can_change, :only => [:edit, :update]
+	before_filter :require_no_authentication, :only => [:new, :create]
+
 	def new
 		@user = User.new
 	end
 
 	def show
 		@user = User.find(params[:id])
+
+		if user_signed_in?
+			@user_review = @room.reviews.find_or_initialize_by_user_id(current_user.id)
+		end
 	end
 
 	def create
@@ -28,5 +35,17 @@ class UsersController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	private
+
+	def can_change
+		unless user_signed_in? && current_user == user
+			redirect_to user_path(params[:id])
+		end
+	end
+
+	def user
+		@user ||= User.find(params[:id])
 	end
 end

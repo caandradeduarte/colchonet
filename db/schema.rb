@@ -11,15 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212232210) do
+ActiveRecord::Schema.define(:version => 20121217174055) do
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.integer  "points"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "reviews", ["room_id", "user_id"], :name => "index_reviews_on_room_id_and_user_id", :unique => true
+  add_index "reviews", ["room_id"], :name => "index_reviews_on_room_id"
+  add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
 
   create_table "rooms", :force => true do |t|
     t.string   "title"
     t.string   "location"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
+    t.integer  "reviews_count"
   end
+
+  add_index "rooms", ["user_id"], :name => "index_rooms_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "full_name"

@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :rooms, :dependent => :destroy
+  has_many :reviews, :dependent => :destroy
+
   attr_accessible :bio, :email, :full_name, :location, :password, :password_confirmation
 
   validates_presence_of :email, :full_name, :location
