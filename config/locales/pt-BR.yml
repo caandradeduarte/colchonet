@@ -64,6 +64,7 @@ pt-BR:
     form_error: Há erros no formulário, por favor verifique.
   flash:
     notice:
+      room_created: Quarto cadastrado com sucesso!
       signed_in: Login efetuado com sucesso!
       signed_out: Logout efetuado com sucesso. Até logo!
     alert:
