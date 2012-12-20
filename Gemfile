@@ -36,3 +36,13 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'debugger'
+
+# Urls Amigáveis
+gem 'friendly_id'
+
+# Paginação
+gem 'kaminari'
+
+# Upload de Imagens
+gem 'carrierwave'
+gem 'rmagick'

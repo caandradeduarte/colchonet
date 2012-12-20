@@ -22,6 +22,7 @@ pt-BR:
   rooms:
     index:
       title: Quartos disponíveis
+      search_results: Resultados da Busca
     new:
       title: Cadastrar Quarto
     edit:
@@ -34,6 +35,8 @@ pt-BR:
         other: '(%{count} avaliações)'
     review_form:
       login_to_review: Faça o login para avaliar quartos
+    search:
+      search_for: Buscar por...
   signup_mailer:
     confirm_email:
       subject: 'Colcho.net - Confirme seu email'
@@ -82,6 +85,7 @@ pt-BR:
         description: Descrição
         location: Localização
         title: Título
+        picture: Foto
   activemodel:
     attributes:
       user_session:

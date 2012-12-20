@@ -1,10 +1,13 @@
 class RoomsController < ApplicationController
+  PER_PAGE = 5
+
   before_filter :require_authentication, :only => [:new, :edit, :create, :update, :destroy]
 
   def index
-    @rooms = Room.most_recent.map do |room|
-      RoomPresenter.new(room, self, false)
-    end
+    @search_query = params[:q]
+
+    rooms = Room.search(@search_query).page(params[:page]).per(PER_PAGE)
+    @rooms = RoomCollectionPresenter.new rooms.most_recent, self
   end
 
   def show
